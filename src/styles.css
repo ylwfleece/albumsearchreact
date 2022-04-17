@@ -1,0 +1,116 @@
+/* CSS RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+.App {
+    font-family: sans-serif;
+    /* text-align: center; */
+  }
+  
+  .searchbar__nav {
+    background-color: green;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+    /* margin-top: 0px; */
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  .searchbar__nav__input {
+    border-radius: 2px;
+    padding: auto;
+  }
+  
+  .searchbar__nav__submit {
+    height: 25px;
+    margin-top: 15px;
+  }
+  
+  .searchbar__prompt {
+    text-align: center;
+    padding: 50px;
+    margin-top: 55px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .results__grid {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 200px;
+    padding: auto;
+    margin: auto;
+    margin-top: 10px;
+  }
+  
+  .results__grid__card {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    height: 200px;
+    width: 200px;
+    /* overflow-wrap: break-word; */
+  }
+  
+  .results__grid__card__cover {
+    max-height: 100px;
+    max-width: 100px;
+  }
+  
+  .results__grid__card__title {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    /* overflow-wrap: break-word; */
+    max-width: 100px;
+  }
+  
+  .showmore {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: center; */
+    margin-left: 45%;
+  }
+  
+  .loader {
+    margin-top: 25px;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media screen and (max-width: 800px) {
+    .results__grid {
+      display: grid;
+      grid-template-columns: 25% 25% 25% 25%;
+      grid-template-rows: 200px;
+      padding: 10px;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .results__grid {
+      display: grid;
+      grid-template-columns: 33% 33% 33%;
+      grid-template-rows: 200px;
+      padding: 10px;
+    }
+  }
+  

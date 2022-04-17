@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles.css";
+import SearchBarNav from "./SearchBarNav";
+import SearchBarPrompt from "./SearchBarPrompt";
+import ResultsGrid from "./ResultsGrid";
+import { ResultsProvider } from "./ResultsContext";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ResultsProvider>
+      <SearchBarNav />
+      <SearchBarPrompt />
+      <ResultsGrid />
+    </ResultsProvider>
   );
 }
-
-export default App;

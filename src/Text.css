@@ -1,0 +1,51 @@
+.inputField {
+    padding: 1rem 1rem;
+    border: none;
+    margin: 0.5rem;
+  }
+  
+  .inputField-error {
+    padding: 1rem 1rem;
+    border: none;
+    margin: 0.5rem;
+    background-color: pink;
+  }
+  
+  .inputField:hover {
+    border: 3px solid gray;
+  }
+  
+  .inputField:focus {
+    border: 6px solid black;
+  }
+  
+  .inputField-error:hover {
+    border: 3px solid gray;
+  }
+  
+  .inputField-error:focus {
+    border: 6px solid red;
+  }
+  
+  .inputContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-bottom: 5px; */
+  }
+  
+  .inputContainer-error {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-bottom: 5px; */
+  }
+  
+  .inputContainer-error img,
+  .inputContainer img {
+    height: 1rem;
+    position: relative;
+    right: 45px;
+    top: 1px;
+  }
+  
