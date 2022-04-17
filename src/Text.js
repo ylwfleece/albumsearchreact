@@ -18,7 +18,6 @@ function Text(props) {
 
   const search = (e) => {
     if (e.key === "Enter" || e.type === "click") {
-      //console.log(inputRef);
       if (searchTerm !== "") {
         setError(false);
         updateResults({ loading: true });
@@ -26,7 +25,6 @@ function Text(props) {
           updateResults({ results: results.results, shown: 20, loaded: true })
         );
       } else {
-        //alert("must input valid string");
         setError(true);
       }
     }
@@ -45,23 +43,12 @@ function Text(props) {
           <img src={searchSvg} onClick={search} />
         </div>
       )}
-      {props.placeholder && !searchTerm && !error && props.default && (
+      {props.placeholder && !error && props.default && (
         <div className="inputContainer tableRow">
           <input
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyUp={search}
-            placeholder={"Search..."}
-            className="inputField"
-          ></input>
-          <img src={searchSvg} onClick={search} />
-        </div>
-      )}
-      {props.placeholder && searchTerm && !error && props.default && (
-        <div className="inputContainer tableRow">
-          <input
-            onChange={(e) => setSearchTerm(e.target.value)}
-            onKeyUp={search}
-            value={searchTerm}
+            placeholder={searchTerm ? searchTerm : "Search..."}
             className="inputField"
           ></input>
           <img src={searchSvg} onClick={search} />
@@ -83,13 +70,11 @@ function Text(props) {
           <input
             onChange={(e) => {
               setSearchTerm(e.target.value);
-              // setError(false);
-              //toggleImg();
             }}
             onKeyUp={search}
             className="inputField-error"
           ></input>
-          <img src={!searchTerm ? errorSvg : searchSvg} />
+          <img src={!searchTerm ? errorSvg : searchSvg} onClick={search} />
         </div>
       )}
       {props.placeholder && props.default && error && (
@@ -97,14 +82,12 @@ function Text(props) {
           <input
             onChange={(e) => {
               setSearchTerm(e.target.value);
-              // setError(false);
-              //toggleImg();
             }}
             onKeyUp={search}
             placeholder="Enter valid term"
             className="inputField-error"
           ></input>
-          <img src={!searchTerm ? errorSvg : searchSvg} />
+          <img src={!searchTerm ? errorSvg : searchSvg} onClick={search} />
         </div>
       )}
       {props.filled && props.default && error && (
@@ -112,14 +95,12 @@ function Text(props) {
           <input
             onChange={(e) => {
               setSearchTerm(e.target.value);
-              // setError(false);
-              //toggleImg();
             }}
             onKeyUp={search}
             value="Input"
             className="inputField-error"
           ></input>
-          <img src={!searchTerm ? errorSvg : searchSvg} />
+          <img src={!searchTerm ? errorSvg : searchSvg} onClick={search} />
         </div>
       )}
     </>
