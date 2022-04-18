@@ -4,7 +4,7 @@ import searchSvg from "./search.svg";
 import { useResultsUpdate } from "./ResultsContext";
 import React, { useState } from "react";
 
-function Text(props) {
+function Text({ empty, placeholder, filled, ...rest }) {
   const [error, setError] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -31,7 +31,7 @@ function Text(props) {
   };
   return (
     <>
-      {props.empty && !error && props.default && (
+      {empty && !error && (
         <div className="inputContainer tableRow">
           <input
             onChange={(e) => {
@@ -39,33 +39,33 @@ function Text(props) {
             }}
             onKeyUp={search}
             className="inputField"
-          ></input>
+            {...rest}></input>
           <img src={searchSvg} onClick={search} />
         </div>
       )}
-      {props.placeholder && !error && props.default && (
+      {placeholder && !error && (
         <div className="inputContainer tableRow">
           <input
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyUp={search}
             placeholder={searchTerm ? searchTerm : "Search..."}
             className="inputField"
-          ></input>
+            {...rest}></input>
           <img src={searchSvg} onClick={search} />
         </div>
       )}
-      {props.filled && !error && props.default && (
+      {filled && !error && (
         <div className="inputContainer tableRow">
           <input
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyUp={search}
             value="Input"
             className="inputField"
-          ></input>
+            {...rest}></input>
           <img src={searchSvg} onClick={search} />
         </div>
       )}
-      {props.empty && props.default && error && (
+      {empty && error && (
         <div className="inputContainer-error tableRow">
           <input
             onChange={(e) => {
@@ -73,11 +73,11 @@ function Text(props) {
             }}
             onKeyUp={search}
             className="inputField-error"
-          ></input>
+            {...rest}></input>
           <img src={!searchTerm ? errorSvg : searchSvg} onClick={search} />
         </div>
       )}
-      {props.placeholder && props.default && error && (
+      {placeholder && error && (
         <div className="inputContainer-error tableRow">
           <input
             onChange={(e) => {
@@ -86,11 +86,11 @@ function Text(props) {
             onKeyUp={search}
             placeholder="Enter valid term"
             className="inputField-error"
-          ></input>
+            {...rest}></input>
           <img src={!searchTerm ? errorSvg : searchSvg} onClick={search} />
         </div>
       )}
-      {props.filled && props.default && error && (
+      {filled && error && (
         <div className="inputContainer-error tableRow">
           <input
             onChange={(e) => {
@@ -99,7 +99,7 @@ function Text(props) {
             onKeyUp={search}
             value="Input"
             className="inputField-error"
-          ></input>
+            {...rest}></input>
           <img src={!searchTerm ? errorSvg : searchSvg} onClick={search} />
         </div>
       )}
